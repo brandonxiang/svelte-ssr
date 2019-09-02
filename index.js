@@ -1,7 +1,12 @@
 const polka = require('polka');
-const App = require('./dist/server').default
 const sirv = require('sirv');
 const compress = require('compression')();
+
+const fetch = require('isomorphic-unfetch')
+global.fetch = fetch
+
+
+const CreateApp = require('./dist/server').default
 
 const assets = sirv('dist', {
   maxAge: 31536000, // 1Y
@@ -10,7 +15,8 @@ const assets = sirv('dist', {
 
 polka()
   .use(compress, assets)
-  .get('/',(req, res) => {
+  .get('/', async (req, res) => {
+    const App = await CreateApp()
     res.end(`
     <!DOCTYPE html>
       <html lang="en">
@@ -23,7 +29,6 @@ polka()
           <div id="server-rendered">
           ${App.html}
           </div>
-          <script src="./bundle.js"></script>
         </body>
       </html>
     `)

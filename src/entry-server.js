@@ -1,7 +1,11 @@
-import App from './App.svelte';
+import * as main from './App.svelte';
 
-const app = App.render({
-	name: 'world'
-});
+console.log(main)
 
-export default app;
+const App = main.default
+
+export default async function CreateApp () {
+	if(!main.preload) return App.render();
+	const props = await main.preload();
+	return App.render(props);
+};
