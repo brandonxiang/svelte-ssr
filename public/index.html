@@ -4,15 +4,17 @@
 	<meta charset='utf8'>
 	<meta name='viewport' content='width=device-width'>
 
-	<title>Svelte app</title>
-
+	<title><%= htmlWebpackPlugin.options.title %></title>
+ 
+	<%= htmlWebpackPlugin.options.ssr.head %>
 	<link rel='icon' type='image/png' href='static/favicon.png'>
 	<link rel='stylesheet' href='static/global.css'>
 </head>
 
 <body>
 	<div id="server-rendered">
-			<h1>Hello world!</h1>
+		<%= htmlWebpackPlugin.options.ssr.html %>
 	</div>
+
 </body>
 </html>

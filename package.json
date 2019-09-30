@@ -23,7 +23,8 @@
     "build:server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js",
     "build:client:dev": "webpack --config webpack.client.config.js",
     "build:server:dev": "webpack --config webpack.server.config.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "node build/dev-server.js"
   },
   "dependencies": {
     "compression": "^1.7.4",

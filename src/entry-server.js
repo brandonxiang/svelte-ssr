@@ -1,11 +1,5 @@
-import * as main from './App.svelte';
-
-console.log(main)
-
-const App = main.default
+import App from './App.svelte';
 
 export default async function CreateApp () {
-	if(!main.preload) return App.render();
-	const props = await main.preload();
-	return App.render(props);
+	return App.render();
 };

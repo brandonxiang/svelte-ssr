@@ -6,15 +6,14 @@ const path = require('path');
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
 
-module.exports = {
+module.exports = (ssrContent) => ({
 	entry: {
-		server: ['./src/entry-server.js']
+		bundle: ['./src/entry-client.js']
 	},
 	resolve: {
 		extensions: ['.mjs', '.js', '.svelte']
 	},
 	output: {
-		libraryTarget: 'commonjs2',
 		path: __dirname + '/dist',
 		filename: '[name].js',
 		chunkFilename: '[name].[id].js'
@@ -30,7 +29,6 @@ module.exports = {
 						emitCss: true,
 						hotReload: true,
 						hydratable: true,
-						generate: 'ssr',
 					}
 				}
 			},
@@ -52,6 +50,13 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
 		}),
+		new CopyPlugin([
+			{ from: './public', to: './static' },
+		]),
+		new HtmlWebpackPlugin({
+			template: './public/index.html',
+			ssr: ssrContent
+		})
 	],
-	devtool: prod ? false: 'source-map'
-};
+	devtool: prod ? false: 'source-map',
+});
