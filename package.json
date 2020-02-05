@@ -28,7 +28,8 @@
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production node build/build.js",
-    "dev": "node build/dev-server.js"
+    "dev": "node build/dev-server.js",
+    "format": "prettier --write --svelte-sort-order scripts-markup-styles ./**/*.svelte"
   },
   "dependencies": {
     "axios": "^0.19.2",
