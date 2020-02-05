@@ -1,22 +1,14 @@
-<!-- <script context="module">
-   export async function preload () {
-		 const res = await fetch(`https://jsonplaceholder.typicode.com/photos`);
-		 const photos = await res.json();
-		 return { photos }
+<script context="module">
+  import axios from 'axios';
+
+  export async function preload () {
+		 const { data } = await axios.get(`https://jsonplaceholder.typicode.com/photos?_limit=20`);
+		 return { photos: data }
 	 }
-</script> -->
+</script>
 
 <script>
-	import { onMount } from 'svelte';
-
-	let photos = [];
-
-	onMount(async () => {
-		const res = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=20`);
-		photos = await res.json();
-	});
-
-	// export let photos;
+	export let photos = [];
 </script>
 
 <style>

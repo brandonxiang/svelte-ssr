@@ -3,6 +3,7 @@ const WebpackDevServer = require('webpack-dev-server');
 const path = require('path');
 const webpackServerConfig = require('./webpack.server.config.js');
 const getWebpackClientConfig = require('./webpack.client.config.js');
+const { getServerRender } = require('./utils');
 
 const compilerServer = webpack(webpackServerConfig)
 
@@ -10,11 +11,7 @@ compilerServer.run(async (err, stats) => {
   if(err) {
     console.log(err)
   } else {
-
-    const AppServer = require('../dist/server').default;
-    const App = await AppServer.render()
-    App.head += `<style>${App.css.code}</style>`;
-
+    const App = await getServerRender();
     const webpackClientConfig = getWebpackClientConfig(App)
     const compileClient = webpack(webpackClientConfig)
 

@@ -3,6 +3,7 @@ const path = require('path');
 const config = require('./webpack.base.config')
 
 const serverConfig = {
+	target: 'node',
 	entry: {
 		server: ['./src/entry-server.js']
 	},

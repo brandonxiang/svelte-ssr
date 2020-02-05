@@ -6,6 +6,7 @@
   "author": "brandonxiang <1542453460@qq.com>",
   "license": "MIT",
   "devDependencies": {
+    "axios": "^0.19.2",
     "copy-webpack-plugin": "^5.0.3",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",

@@ -1,2 +1,2 @@
-export { default } from './App.svelte';
+export { default, preload } from './App.svelte';
 
