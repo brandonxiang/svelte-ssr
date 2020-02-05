@@ -1,20 +1,19 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const merge = require('webpack-merge')
 const path = require('path');
+const config = require('./webpack.base.config')
 
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
 
-module.exports = (ssrContent) => ({
+module.exports = (ssrContent) => merge(config, {
 	entry: {
 		bundle: ['./src/entry-client.js']
 	},
-	resolve: {
-		extensions: ['.mjs', '.js', '.svelte']
-	},
 	output: {
-		path: __dirname + '/dist',
+		path: path.join(__dirname, '..', '/dist'),
 		filename: '[name].js',
 		chunkFilename: '[name].[id].js'
 	},
@@ -26,9 +25,9 @@ module.exports = (ssrContent) => ({
 				use: {
 					loader: 'svelte-loader',
 					options: {
+						hydratable: true,
 						emitCss: true,
 						hotReload: true,
-						hydratable: true,
 					}
 				}
 			},

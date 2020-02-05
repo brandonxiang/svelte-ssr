@@ -1,12 +1,11 @@
 const webpack = require('webpack')
-const WebpackDevServer = require('webpack-dev-server');
 const path = require('path');
 const webpackServerConfig = require('./webpack.server.config.js');
 const getWebpackClientConfig = require('./webpack.client.config.js');
 
 const compilerServer = webpack(webpackServerConfig)
 
-compilerServer.run(async (err, stats) => {
+compilerServer.run(async (err) => {
   if(err) {
     console.log(err)
   } else {
@@ -18,12 +17,12 @@ compilerServer.run(async (err, stats) => {
     const webpackClientConfig = getWebpackClientConfig(App)
     const compileClient = webpack(webpackClientConfig)
 
-    const server = new WebpackDevServer(compileClient, {
-      contentBase: path.join(__dirname, 'public'),
-      compress: true,
-      open: false,
-    })
+    compileClient.run(async (err) => {
+      if(err) {
+        console.log(err)
+      } else {
 
-    server.listen(9000, "localhost", function() {});
+      }
+    })
   }
 })

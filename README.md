@@ -1,15 +1,6 @@
-# svelte-webpack-template
+# svelte-ssr
 
-To create a new project based on this template using degit:
+This is a demo to build ssr in a most simple mode powered with svelte, **which is appropriately used for learning, not for production**. Obviously, [Sapper](https://sapper.svelte.dev/) is the best choice for production. Please read the sapper documention first. 
 
-```shell
-npx degit brandonxiang/svelte-webpack-template svelte-app
-cd svelte-app
-yarn
-```
+In [Official Documention of Svelte](https://svelte.dev/), SSR is This repo is going to tell you how to set up a simple svelte ssr step by step.
 
-## development
-
-```shell
-npm run dev
-```

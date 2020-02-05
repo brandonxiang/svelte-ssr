@@ -1,16 +1,14 @@
-// const mode = process.env.NODE_ENV || 'development';
-const mode = 'production';
+const merge = require('webpack-merge')
+const path = require('path');
+const config = require('./webpack.base.config')
 
-module.exports = {
+const serverConfig = {
 	entry: {
 		server: ['./src/entry-server.js']
 	},
-	resolve: {
-		extensions: ['.mjs', '.js', '.svelte']
-	},
 	output: {
 		libraryTarget: 'commonjs2',
-		path: __dirname + '/dist',
+		path: path.join(__dirname, '..','dist'),
 		filename: '[name].js',
 		chunkFilename: '[name].[id].js'
 	},
@@ -22,14 +20,13 @@ module.exports = {
 				use: {
 					loader: 'svelte-loader',
 					options: {
-						emitCss: true,
-						hotReload: true,
-						hydratable: true,
+						css: false,
 						generate: 'ssr',
 					}
 				}
-			},
+			}
 		]
 	},
-	mode,
 };
+
+module.exports = merge(config, serverConfig);

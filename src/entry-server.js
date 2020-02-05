@@ -1,5 +1,2 @@
-import App from './App.svelte';
+export { default } from './App.svelte';
 
-export default async function CreateApp () {
-	return App.render();
-};
