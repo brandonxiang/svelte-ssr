@@ -1,33 +1,33 @@
-const merge = require('webpack-merge')
+const merge = require('webpack-merge');
 const path = require('path');
-const config = require('./webpack.base.config')
+const config = require('./webpack.base.config');
 
 const serverConfig = {
-	target: 'node',
-	entry: {
-		server: ['./src/entry-server.js']
-	},
-	output: {
-		libraryTarget: 'commonjs2',
-		path: path.join(__dirname, '..','dist'),
-		filename: '[name].js',
-		chunkFilename: '[name].[id].js'
-	},
-	module: {
-		rules: [
-			{
-				test: /\.svelte$/,
-				exclude: /node_modules/,
-				use: {
-					loader: 'svelte-loader',
-					options: {
-						css: false,
-						generate: 'ssr',
-					}
-				}
-			}
-		]
-	},
+  target: 'node',
+  entry: {
+    server: ['./src/entry-server.js'],
+  },
+  output: {
+    libraryTarget: 'commonjs2',
+    path: path.join(__dirname, '..', 'dist'),
+    filename: '[name].js',
+    chunkFilename: '[name].[id].js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.svelte$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'svelte-loader',
+          options: {
+            css: false,
+            generate: 'ssr',
+          },
+        },
+      },
+    ],
+  },
 };
 
 module.exports = merge(config, serverConfig);

@@ -6,15 +6,20 @@
   "author": "brandonxiang <1542453460@qq.com>",
   "license": "MIT",
   "devDependencies": {
-    "axios": "^0.19.2",
+    "compression": "^1.7.4",
     "copy-webpack-plugin": "^5.0.3",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-svelte3": "^2.7.3",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.6.0",
     "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "prettier-plugin-svelte": "^0.7.0",
     "style-loader": "^0.23.1",
-    "svelte": "^3.0.0",
     "svelte-loader": "2.13.3",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.5",
@@ -26,11 +31,7 @@
     "dev": "node build/dev-server.js"
   },
   "dependencies": {
-    "compression": "^1.7.4",
-    "isomorphic-fetch": "^2.2.1",
-    "isomorphic-unfetch": "^3.0.0",
-    "polka": "^0.5.2",
-    "sirv": "^0.4.2",
-    "unfetch": "^4.1.0"
+    "axios": "^0.19.2",
+    "svelte": "^3.0.0"
   }
 }

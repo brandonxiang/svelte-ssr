@@ -3,7 +3,7 @@
 
   export async function preload () {
 		 const { data } = await axios.get(`https://jsonplaceholder.typicode.com/photos?_limit=20`);
-		 return { photos: data }
+		 return { photos: data };
 	 }
 </script>
 

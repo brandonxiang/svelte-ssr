@@ -1,6 +1,5 @@
 # svelte-ssr
 
-
 <a href="https://github.com/brandonxiang/svelte-ssr/blob/master/LICENSE">
   <img src="https://img.shields.io/github/license/brandonxiang/svelte-ssr" alt="license">
 </a>
@@ -28,6 +27,10 @@ yarn dev
 # or
 npm run dev
 ```
+
+## Reference 
+
+- [brandonxiang/svelte-webpack-mpa](https://github.com/brandonxiang/svelte-webpack-mpa)
 
 ## LICENSE
 
