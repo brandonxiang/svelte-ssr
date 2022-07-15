@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "svelte": "^3.0.0"
+    "svelte": "^3.49.0"
   }
 }
